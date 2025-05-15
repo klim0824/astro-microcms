@@ -3,6 +3,9 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { getBlogs } from "../libraries/microcms";
+const response = await getBlogs({ fields: ["id", "title"] });
 ---
 
 <!doctype html>
@@ -43,6 +46,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
 				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 			</p>
+
+			<ul>
+			{
+				response.contents.map((content: any) => (
+					<li>
+						<a href={content.id}>{content.title}</a>
+					</li>
+				))
+			}
+			</ul>
 		</main>
 		<Footer />
 	</body>
