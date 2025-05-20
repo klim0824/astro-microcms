@@ -1,6 +1,6 @@
 // SDK利用準備
-import type { MicroCMSQueries, MicroCMSListContent } from "microcms-js-sdk";
 import { createClient } from "microcms-js-sdk";
+import type { MicroCMSListContent, MicroCMSQueries } from "microcms-js-sdk";
 
 const client = createClient({
 	serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
@@ -20,7 +20,7 @@ export const getBlogs = async (queries?: MicroCMSQueries) => {
 
 export const getBlogDetail = async (
 	contentId: string,
-	queries?: MicroCMSQueries
+	queries?: MicroCMSQueries,
 ) => {
 	return await client.getListDetail<Blog>({
 		endpoint: "blogs",
