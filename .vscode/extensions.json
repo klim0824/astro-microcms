@@ -2,6 +2,7 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "editorconfig.editorconfig",
+    "nhoizey.gremlins",
     "unifiedjs.vscode-mdx"
   ],
   "unwantedRecommendations": []
