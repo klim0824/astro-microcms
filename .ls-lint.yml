@@ -1,0 +1,24 @@
+ls:
+  .css: camelCase
+  .js: camelCase
+  .ts: camelCase
+  .d.ts: camelCase
+  .json: kebab-case
+
+  src/components:
+    .astro: PascalCase
+
+  src/content:
+    .md: kebab-case
+    .mdx: kebab-case
+
+  src/layouts:
+    .astro: PascalCase
+
+  # src/pages:
+  #   .astro:
+  #     regex: \[[A-Za-z]+\]
+
+ignore:
+  - .git
+  - node_modules
