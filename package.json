@@ -7,7 +7,8 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint:ls": "ls-lint"
+		"lint:ls": "ls-lint",
+		"lint:text": "textlint ./"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^4.2.6",
@@ -15,7 +16,11 @@
 		"@astrojs/sitemap": "^3.3.1",
 		"@ls-lint/ls-lint": "^2.3.0",
 		"astro": "^5.7.12",
-		"microcms-js-sdk": "^3.2.0"
+		"microcms-js-sdk": "^3.2.0",
+		"textlint": "^14.7.2",
+		"textlint-rule-no-dropping-the-ra": "^3.0.0",
+		"textlint-rule-no-kangxi-radicals": "^0.2.2",
+		"textlint-rule-no-nfd": "^2.0.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4"

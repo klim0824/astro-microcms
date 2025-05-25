@@ -1,0 +1,11 @@
+filters:
+plugins:
+  "@textlint/text":
+    "extensions":
+      - ".astro"
+      - ".md"
+      - ".mdx"
+rules:
+  no-dropping-the-ra: true
+  no-kangxi-radicals: true
+  no-nfd: true

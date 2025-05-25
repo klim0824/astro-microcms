@@ -1,10 +1,11 @@
 {
 	"recommendations": [
+		"3w36zj6.textlint",
 		"astro-build.astro-vscode",
+		"biomejs.biome",
 		"editorconfig.editorconfig",
 		"nhoizey.gremlins",
-		"unifiedjs.vscode-mdx",
-		"biomejs.biome"
+		"unifiedjs.vscode-mdx"
 	],
 	"unwantedRecommendations": []
 }
