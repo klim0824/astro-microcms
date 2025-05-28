@@ -1,19 +1,27 @@
-// SDK利用準備
+import { getSecret } from "astro:env/server";
 import { createClient } from "microcms-js-sdk";
 import type { MicroCMSListContent, MicroCMSQueries } from "microcms-js-sdk";
 
+const serviceDomain = getSecret("MICROCMS_SERVICE_DOMAIN");
+const apiKey = getSecret("MICROCMS_API_KEY");
+
+if (!serviceDomain || !apiKey) {
+	console.error(
+		"MICROCMS_SERVICE_DOMAIN または MICROCMS_API_KEY の環境変数が設定されていません。",
+	);
+	process.exit(1);
+}
+
 const client = createClient({
-	serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
-	apiKey: import.meta.env.MICROCMS_API_KEY,
+	serviceDomain,
+	apiKey,
 });
 
-// 型定義
 export type Blog = {
 	title: string;
 	content: string;
 } & MicroCMSListContent;
 
-// APIの呼び出し
 export const getBlogs = async (queries?: MicroCMSQueries) => {
 	return await client.getList<Blog>({ endpoint: "blogs", queries });
 };
