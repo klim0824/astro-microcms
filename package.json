@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@ls-lint/ls-lint": "^2.3.0",
+		"npm-run-all2": "^8.0.4",
 		"textlint": "^14.7.2",
 		"textlint-rule-no-dropping-the-ra": "^3.0.0",
 		"textlint-rule-no-kangxi-radicals": "^0.2.2",
@@ -32,6 +33,7 @@
 		"astro": "astro",
 		"build": "astro build",
 		"dev": "astro dev",
+		"lint": "npm-run-all --parallel lint:*",
 		"lint:ls": "ls-lint",
 		"lint:text": "textlint ./",
 		"preview": "astro preview"
