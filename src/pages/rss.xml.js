@@ -16,7 +16,7 @@ export async function GET(context) {
 			title: post.title,
 			link: `/${post.id}`,
 			pubDate: new Date(post.publishedAt),
-			description: `<![CDATA[${sanitizeHtml(post.content)}]]>`,
+			description: sanitizeHtml(post.content),
 		})),
 	});
 }
