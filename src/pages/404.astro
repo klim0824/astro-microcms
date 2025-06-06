@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Basic.astro";
+import { getBlogs } from "../libraries/microcms";
+
+const response = await getBlogs({ fields: ["id", "title"] });
+---
+
+<Layout>
+	<h1>404 not found</h1>
+	<p><a href="/">Back to Top</a></p>
+</Layout>
