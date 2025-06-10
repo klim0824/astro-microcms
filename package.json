@@ -24,6 +24,9 @@
 		"textlint-rule-no-nfd": "^2.0.2"
 	},
 	"email": "klim0824@live.jp",
+	"engines": {
+		"node": ">=20.0.0"
+	},
 	"homepage": "https://github.com/klim0824/astro-microcms/",
 	"license": "MIT",
 	"private": true,
