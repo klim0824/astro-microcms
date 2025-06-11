@@ -42,7 +42,9 @@
 		"lint": "npm-run-all --parallel lint:*",
 		"lint:ls": "ls-lint",
 		"lint:text": "textlint ./",
-		"lint:ts": "tsc --noEmit",
+		"lint:ts": "npm-run-all --serial lint:ts:*",
+		"lint:ts:astroSync": "astro sync",
+		"lint:ts:noEmit": "tsc --noEmit",
 		"preview": "astro preview"
 	},
 	"type": "module"
