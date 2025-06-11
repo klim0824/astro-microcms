@@ -20,5 +20,6 @@ ls:
   #     regex: \[[A-Za-z]+\]
 
 ignore:
+  - .astro
   - .git
   - node_modules

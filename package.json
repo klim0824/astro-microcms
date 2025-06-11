@@ -36,7 +36,8 @@
 	},
 	"scripts": {
 		"astro": "astro",
-		"build": "astro build",
+		"build": "npm-run-all --serial lint build:astro",
+		"build:astro": "astro build",
 		"dev": "astro dev",
 		"lint": "npm-run-all --parallel lint:*",
 		"lint:ls": "ls-lint",
