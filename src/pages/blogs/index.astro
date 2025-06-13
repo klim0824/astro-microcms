@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Basic.astro";
+import { getBlogs } from "../../libraries/microcms";
+
+const response = await getBlogs({ fields: ["id", "title"] });
+---
+
+<Layout>
+	<h1>🧑‍🚀 Hello, Astronaut!</h1>
+	<ul>
+	{
+		response.contents.map((content: any) => (
+			<li>
+				<a href={content.id}>{content.title}</a>
+			</li>
+		))
+	}
+	</ul>
+</Layout>

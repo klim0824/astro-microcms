@@ -1,0 +1,44 @@
+---
+import type { GetStaticPathsOptions } from "astro";
+import type { MicroCMSListResponse } from "microcms-js-sdk";
+import Layout from "../../layouts/Basic.astro";
+import { type Blog } from "../../libraries/microcms";
+import { getBlogs } from "../../libraries/microcms";
+
+export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
+	const response: MicroCMSListResponse<Pick<Blog, "title">> = await getBlogs({
+		fields: ["id", "title"],
+	});
+	return paginate(response.contents, { pageSize: 1 });
+};
+
+const { page } = Astro.props;
+---
+
+<Layout>
+	<main>
+		<h1>{page.currentPage}ページ</h1>
+
+		<ul>
+			{
+				page.data.map(({ title, id }) => (
+					<li>
+						<a href={`/${id}/`}>{title}</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<div>
+		 <a href={page.url.prev} class:list={['setPage', { invalid: !page.url.prev }]}>{'< 前のページ'}</a>
+		 {
+			 [...Array(page.lastPage)].map((_, i) => (
+				 <a class:list={['pageNumber', { currentPage: page.currentPage === i + 1 }]} href={`/blogs/${i + 1}/`}>
+					 {i + 1}
+				 </a>
+			 ))
+		 }
+		 <a href={page.url.next} class:list={['setPage', { invalid: !page.url.next }]}>{'次のページ >'}</a>
+	 </div>
+	</main>
+</Layout>
