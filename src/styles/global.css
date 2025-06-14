@@ -39,6 +39,16 @@
 	font-size: 1rem;
 }
 
+:where(fieldset) {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+:where(legend) {
+	padding: 0;
+}
+
 :where(label:not(:has([disabled]))) {
 	cursor: pointer;
 }
